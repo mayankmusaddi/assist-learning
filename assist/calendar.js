@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { StyleSheet, Button, View, SafeAreaView, Text, Alert } from 'react-native';
 import { Calendar, CalendarList, Agenda } from 'react-native-calendars';
+import * as Notifications from 'expo-notifications';
+import * as Permissions from 'expo-permissions';
 
 class Calendars extends Component {
     constructor(props) {
@@ -12,6 +14,28 @@ class Calendars extends Component {
     submit = () => {
         this.props.navigation.navigate("Subject");
     };
+
+    registerForPushNotificationsAsync = async() => {
+        let token;
+        const { status: existingStatus } = await Permissions.getAsync(Permissions.NOTIFICATIONS);
+        let finalStatus = existingStatus;
+        if (existingStatus !== 'granted') {
+          const { status } = await Permissions.askAsync(Permissions.NOTIFICATIONS);
+          finalStatus = status;
+        }
+        if (finalStatus !== 'granted') {
+          alert('Failed to get push token for push notification!');
+          return;
+        }
+        token = (await Notifications.getExpoPushTokenAsync()).data;
+        console.log(token);
+
+        return token;
+      }
+
+    async componentDidMount(){
+        this.registerForPushNotificationsAsync();
+    }
 
     render() {
         return (

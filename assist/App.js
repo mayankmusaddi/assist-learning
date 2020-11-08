@@ -16,6 +16,7 @@ import NucleusSummary from './NucleusSummary';
 import SwipeCards from './SwipeCards';
 import FlashCards from './FlashCards';
 import Methods from './chooseMethod.js';
+import pushnotification from './pushnotification';
 
 const Stack = createStackNavigator();
 console.disableYellowBox = true;
@@ -61,13 +62,17 @@ export default function App() {
           name="Methods"
           component={Methods}
         />
-         <Stack.Screen
+        <Stack.Screen
           name="SwipeCards"
           component={SwipeCards}
         />
-         <Stack.Screen
+        <Stack.Screen
           name="FlashCards"
           component={FlashCards}
+        />
+        <Stack.Screen
+          name="Pushnotification"
+          component={pushnotification}
         />
       </Stack.Navigator>
     </NavigationContainer>

@@ -2,12 +2,12 @@ import React from 'react';
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import StyledText from 'react-native-styled-text';
 
-const buttonClickedHandler = () => {
-  console.log('You have been clicked a button!');
-  // do something
-};
-
 export default class NucleusSummary extends React.Component {
+
+  buttonClickedHandler = () => {
+    this.props.navigation.navigate("TopicGraph2");
+  };
+
   render() {
     return (
     <View style={styles.screen}>
@@ -35,7 +35,7 @@ export default class NucleusSummary extends React.Component {
       </StyledText>
 
       <TouchableOpacity
-          onPress={buttonClickedHandler}
+          onPress={()=>{this.buttonClickedHandler()}}
           style={styles.roundButton2}>
           <Text>Done</Text>
         </TouchableOpacity>
