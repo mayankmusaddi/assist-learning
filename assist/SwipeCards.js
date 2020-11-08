@@ -5,6 +5,7 @@ import React, { Component } from "react";
 import { StyleSheet, Text, View, Image } from "react-native";
 
 import SwipeCards from "react-native-swipe-cards";
+import Modal from 'react-native-modal';
 
 class Card extends React.Component {
   constructor(props) {
@@ -39,35 +40,38 @@ class NoMoreCards extends Component {
 }
 
 const cards = [
-  { text: "What is a chronotype?", backgroundColor: "cyan" },
+
+  { text: "What is a cell?", backgroundColor: "cyan", answer : " The cell in a living organism is the basic structural unit." },
   {
     text:
-      "What are the two extremes with most individuals having some flexibility in the timing of their sleep period?",
+      "What is the relation between Tissues, Organ and Cell?",
     backgroundColor: "cyan",
   },
-  { text: "what is a notable environmental cue?", backgroundColor: "cyan" },
+  { text: "Specify two organs in a plant and their functions", backgroundColor: "cyan" },
   {
     text:
-      "What is a factor that might be important in determining a person's chronotype?",
+      "What are the major components of the cell?",
     backgroundColor: "cyan",
   },
-  { text: "What are the circadian rhythms?", backgroundColor: "cyan" },
+  { text: "Where is a nucleus located?", backgroundColor: "cyan" },
   {
-    text: "What is the main thing that humans do during the day?",
+    text: "What are the functions of a chromosome?",
     backgroundColor: "cyan",
   },
-  { text: "What are clock genes called?", backgroundColor: "cyan" },
+  { text: "What are the functions of a nuclues?", backgroundColor: "cyan" },
+  { text: "What do we mean by protoplasm?", backgroundColor: "cyan" },
 ];
 
-const testText =
-  "A chronotype is the behavioral manifestation of underlying circadian rhythms of myriad physical processes. A person's chronotype is the propensity for the individual to sleep at a particular time during a 24-hour period. Eveningness (delayed sleep period) and morningness (advanced sleep period) are the two extremes with most individuals having some flexibility in the timing of their sleep period. However, across development there are changes in the propensity of the sleep period with pre-pubescent children preferring an advanced sleep period, adolescents preferring a delayed sleep period and many elderly preferring an advanced sleep period.\nThe causes and regulation of chronotypes, including developmental change, individual propensity for a specific chronotype, and flexible versus fixed chronotypes have yet to be determined. However, research is beginning to shed light on these questions, such as the relationship between age and chronotype.[1] There are candidate genes (called clock genes) that exist in most cells in the body and brain, referred to as the circadian system that regulate physiological phenomena (hormone levels, metabolic function, body temperature, cognitive faculties, and sleeping). With the exception of the most extreme and rigid chronotypes, regulation is likely due to gene-environment interactions. Important environmental cues (zeitgebers) include light, feeding, social behavior, and work and school schedules. Additional research has proposed an evolutionary link between chronotype and nighttime vigilance in ancestral societies.[2]\nHumans are normally diurnal creatures, that is to say they are active in the daytime. As with most other diurnal animals, human activity-rest patterns are endogenously controlled by biological clocks with a circadian (~24-hour) period. Chronotypes have also been investigated in other species, such as fruit flies[3] and mice.[4] ";
 
 export default class extends React.Component {
+
   constructor(props) {
     super(props);
     this.state = {
       cards: cards,
       score: 0,
+      answer : "",
+      isModalVisible : false,
     };
   }
 
@@ -81,6 +85,8 @@ export default class extends React.Component {
     this.setState({ score: this.state.score - 1 });
     // this.state.score -= 1;
     console.log(`Nope for ${card.text}`);
+    this.state.answer = card.answer;
+    this.state.isModalVisible = true;
   }
   handleMaybe(card) {
     console.log(`Maybe for ${card.text}`);
@@ -97,6 +103,15 @@ export default class extends React.Component {
           handleMaybe={this.handleMaybe.bind(this)}
           hasMaybeAction
         />
+        <Modal 
+          isVisible={this.state.isModalVisible}
+          onSwipeComplete={() => this.state.isModalVisible = false}
+          swipeDirection="left"
+        >
+          <View style={{ flex: 1 }}>
+            <Text>{this.state.answer}</Text>
+          </View>
+        </Modal>
         <Text style={styles.score}>SCORE IS {this.state.score}</Text>
       </View>
     );
