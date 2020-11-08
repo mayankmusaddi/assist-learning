@@ -52,8 +52,8 @@ const styles = StyleSheet.create({
     flex: 1,
     // justifyContent: 'center',
     alignItems: 'center',
-    padding: 50,
     marginTop: 100,
+    paddingHorizontal: 15,
   },
   titleText: {
       fontSize: 30,

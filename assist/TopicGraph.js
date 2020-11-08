@@ -29,13 +29,13 @@ export default class TopicGraph extends React.Component {
         <View style={{ flexDirection: "row" }}>
           <TouchableOpacity
             onPress={()=>{this.buttonClickedHandler()}}
-            onLongPress={()=>{this.longClickedHandler()}}
             style={styles.roundButton2}>
             <Text>History</Text>
           </TouchableOpacity>
 
           <TouchableOpacity
             onPress={()=>{this.buttonClickedHandler()}}
+            onLongPress={()=>{this.longClickedHandler()}}
             style={styles.roundButton2}>
             <Text>Structure</Text>
           </TouchableOpacity>
