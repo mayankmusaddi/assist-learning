@@ -1,48 +1,53 @@
 import React from 'react';
-import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
-
-const buttonClickedHandler = () => {
-  console.log('You have been clicked a button!');
-  // do something
-};
-
-const longClickedHandler = () => {
-  console.log('Long Clicked button');
-  // do something
-};
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
 export default class TopicGraph extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+    };
+  }
+
+  buttonClickedHandler = () => {
+    this.props.navigation.navigate("TopicGraph2");
+  };
+  
+  longClickedHandler = () => {
+    this.props.navigation.navigate("StructureSummary");
+  
+  };
+
   render() {
     return (
-    <View style={styles.screen}>
-      <TouchableOpacity
-        onPress={buttonClickedHandler}
-        style={styles.roundButton1}>
-        <Text>Cell</Text>
-      </TouchableOpacity>
-
-      <View style={{flexDirection:"row"}}>
+      <View style={styles.screen}>
         <TouchableOpacity
-          onPress={buttonClickedHandler}
-          onLongPress={longClickedHandler}
-          style={styles.roundButton2}>
-          <Text>History</Text>
+          onPress={()=>{this.buttonClickedHandler()}}
+          style={styles.roundButton1}>
+          <Text>Cell</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity
-          onPress={buttonClickedHandler}
-          style={styles.roundButton2}>
-          <Text>Structure</Text>
-        </TouchableOpacity>
+        <View style={{ flexDirection: "row" }}>
+          <TouchableOpacity
+            onPress={()=>{this.buttonClickedHandler()}}
+            style={styles.roundButton2}>
+            <Text>History</Text>
+          </TouchableOpacity>
 
-        <TouchableOpacity
-          onPress={buttonClickedHandler}
-          style={styles.roundButton2}>
-          <Text>Functions</Text>
-        </TouchableOpacity>
+          <TouchableOpacity
+            onPress={()=>{this.buttonClickedHandler()}}
+            onLongPress={()=>{this.longClickedHandler()}}
+            style={styles.roundButton2}>
+            <Text>Structure</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            onPress={()=>{this.buttonClickedHandler()}}
+            style={styles.roundButton2}>
+            <Text>Functions</Text>
+          </TouchableOpacity>
+        </View>
       </View>
-    </View>
-  );
+    );
   }
 }
 

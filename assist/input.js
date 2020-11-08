@@ -44,27 +44,6 @@ class Inputs extends Component {
         .then(
           (result) => {
             console.log(result);
-            // if (result.input_text) {
-            //   document.getElementById("squashInputText").value =
-            //     result.input_text;
-            // }
-            // var expanded = null;
-            // if (result.squash_data != null) {
-            //   expanded = result.squash_data.qa_tree.map((para, para_index) =>
-            //     para.binned_qas.map((qa_tree, qa_index) => false)
-            //   );
-            // }
-            // this.setState({
-            //   forest: result.squash_data,
-            //   queue_number: result.queue_number,
-            //   settings: {
-            //     top_p: result.settings.top_p,
-            //     gen_frac: result.settings.gen_frac,
-            //     spec_frac: result.settings.spec_frac,
-            //   },
-            //   status: result.status,
-            //   expanded: expanded,
-            // });
           },
           (error) => {
             console.log(error);
@@ -98,7 +77,6 @@ class Inputs extends Component {
   }
 
   submit = (text) => {
-    // this.squashDoc(text);
     this.props.navigation.navigate("Questions");
   };
   render() {
