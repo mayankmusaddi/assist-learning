@@ -16,7 +16,7 @@ class Card extends React.Component {
       <View
         style={[styles.card, { backgroundColor: this.props.backgroundColor }]}
       >
-        <Text>{this.props.text}</Text>
+        <Text style={styles.cardText}>{this.props.text}</Text>
       </View>
     );
   }
@@ -31,7 +31,7 @@ class NoMoreCards extends Component {
     return (
       <View>
         <Text style={styles.noMoreCardsText}>
-          Great! You have finished all the Questions
+          Great! You have finished all the FlashCards
         </Text>
       </View>
     );
@@ -40,32 +40,18 @@ class NoMoreCards extends Component {
 
 const cards = [
 
-  { text: "What is a cell?", backgroundColor: "cyan", answer : " The cell in a living organism is the basic structural unit." },
-  {
-    text:
-      "What is the relation between Tissues, Organ and Cell?",
-    backgroundColor: "cyan",
-    answer: "Organs are made up of tissues which are in turn made up of cells"
-  },
-  { text: "Specify two organs in a plant and their functions", backgroundColor: "cyan" , answer : "Roots for absoption of water and Leaves for synthesis of food"},
-  {
-    text:
-      "What are the major components of the cell?",
-    backgroundColor: "cyan",
-    answer: "Cell Membrane, Cytoplasm and Nucleus"
-  },
-  { text: "Where is a nucleus located?", backgroundColor: "cyan" , answer : "Centre of the cell"},
-  {
-    text: "What are the functions of a chromosome?",
-    backgroundColor: "cyan",
-    answer : "Carrying genes and help in inheritance"
-  },
-  { text: "What are the functions of a nuclues?", backgroundColor: "cyan" , answer : "Control Centre of the activities in the cell and contains chromosomes"},
-  { text: "What do we mean by protoplasm?", backgroundColor: "cyan" , answer : "Cytoplasm and Nucleus make up the entire content of a cell called protoplasm"},
+  { text: "The cell in a living organism is the basic structural unit.", backgroundColor: "cyan"},
+  { text: "Organs are made up of tissues which are in turn made up of cells", backgroundColor: "cyan"},
+  { text: "Organs perform different functions such as digestion, assimilation and absorption.", backgroundColor: "cyan"},
+  { text: "Cell Membrane, Cytoplasm and Nucleus are key components of the Cell", backgroundColor: "cyan"},
+  { text: "Nucleus are generally spherical and located in the centre of the cell", backgroundColor: "cyan"},
+  { text: "Nucleus is the Control Centre of the activities in the cell and contains chromosomes", backgroundColor: "cyan"},
+  { text: "Chromosome carry genes and help in inheritance", backgroundColor: "cyan"},
+  { text: "Cytoplasm and Nucleus make up the entire content of a cell called protoplasm", backgroundColor: "cyan"},
 ];
 
 
-export default class extends React.Component {
+export default class FlashCards extends React.Component {
 
   constructor(props) {
     super(props);
@@ -77,24 +63,14 @@ export default class extends React.Component {
 
   handleYup(card) {
     this.setState({ score: this.state.score + 1 });
-<<<<<<< HEAD
-=======
-    console.log(`${this.state.score}`);
->>>>>>> main
     console.log(`Yup for ${card.text}`);
   }
   handleNope(card) {
     this.setState({ score: this.state.score - 1 });
     console.log(`Nope for ${card.text}`);
-
-    // this.state.answer = card.answer;
-    // this.state.isModalVisible = true;
-    Alert.alert("Answer",card.answer);
   }
   handleMaybe(card) {
     console.log(`Maybe for ${card.text}`);
-    Alert.alert("Answer",card.answer);
-
   }
   render() {
     return (
@@ -108,7 +84,6 @@ export default class extends React.Component {
           handleMaybe={this.handleMaybe.bind(this)}
           hasMaybeAction
         />
-        <Text style={styles.score}>SCORE IS {this.state.score}</Text>
       </View>
     );
   }
@@ -128,16 +103,14 @@ const styles = StyleSheet.create({
     fontSize: 30,
     padding: 30,
     width: 300,
-    height: 300,
+    height: 500,
+  },
+  cardText: {
+    fontSize : 30,
   },
   noMoreCardsText: {
     fontSize: 22,
     alignItems: "center",
     textAlign: "center",
-  },
-  score: {
-    fontSize: 20,
-    paddingTop: 10,
-    marginTop: 10,
   },
 });

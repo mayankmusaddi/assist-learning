@@ -14,6 +14,13 @@ import TopicGraph from './TopicGraph';
 import TopicGraph2 from './TopicGraph2';
 import StructureSummary from './StructureSummary';
 import NucleusSummary from './NucleusSummary';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import SwipeCards from './SwipeCards';
+import FlashCards from './FlashCards';
+
+const Stack = createStackNavigator();
+console.disableYellowBox = true;
 
 const Stack = createStackNavigator();
 export default function App() {
