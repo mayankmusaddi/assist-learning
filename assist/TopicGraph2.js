@@ -7,11 +7,18 @@ const buttonClickedHandler = () => {
 };
 
 const longClickedHandler = () => {
-  console.log('Long Clicked button');
-  // do something
+  
+  this.props.navigation.navigate("NucleusSummary");
+
 };
 
 export default class TopicGraph2 extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+    };
+  }
+
   render() {
     return (
     <View style={styles.screen}>
