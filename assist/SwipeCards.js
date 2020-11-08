@@ -73,13 +73,11 @@ export default class extends React.Component {
 
   handleYup(card) {
     this.setState({ score: this.state.score + 1 });
-    // this.state.score += 1;
     console.log(`${this.state.score}`);
     console.log(`Yup for ${card.text}`);
   }
   handleNope(card) {
     this.setState({ score: this.state.score - 1 });
-    // this.state.score -= 1;
     console.log(`Nope for ${card.text}`);
   }
   handleMaybe(card) {

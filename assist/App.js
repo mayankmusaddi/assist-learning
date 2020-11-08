@@ -7,19 +7,28 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import SwipeCards from './SwipeCards';
 import Inputs from './input.js'
+import Subjects from './chooseSubject';
+import Chapters from './chooseChapter';
+import Calendars from './calendar';
 
 const Stack = createStackNavigator();
 export default function App() {
 
   return (
-    // <View style={styles.container}>
-    //   <Inputs/>
-    //   {/* <Text>Open up App.js to start working on your app!</Text>
-    //   <StatusBar style="auto" />
-    //   <SwipeCards style={{ flex: 1 }} /> */}
-    // </View>
     <NavigationContainer>
       <Stack.Navigator>
+        <Stack.Screen
+          name="Calendars"
+          component={Calendars}
+        />
+        <Stack.Screen
+          name="Subject"
+          component={Subjects}
+        />
+        <Stack.Screen
+          name="Chapter"
+          component={Chapters}
+        />
         <Stack.Screen
           name="Input"
           component={Inputs}
