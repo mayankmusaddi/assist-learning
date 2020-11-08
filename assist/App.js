@@ -10,6 +10,10 @@ import Inputs from './input.js'
 import Subjects from './chooseSubject';
 import Chapters from './chooseChapter';
 import Calendars from './calendar';
+import TopicGraph from './TopicGraph';
+import TopicGraph2 from './TopicGraph2';
+import StructureSummary from './StructureSummary';
+import NucleusSummary from './NucleusSummary';
 
 const Stack = createStackNavigator();
 export default function App() {
@@ -34,8 +38,20 @@ export default function App() {
           component={Inputs}
         />
         <Stack.Screen
-          name="Questions"
-          component={SwipeCards}
+          name="TopicGraph"
+          component={TopicGraph}
+        />
+        <Stack.Screen
+          name="TopicGraph2"
+          component={TopicGraph2}
+        />
+        <Stack.Screen
+          name="StructureSummary"
+          component={StructureSummary}
+        />
+        <Stack.Screen
+          name="NucleusSummary"
+          component={NucleusSummary}
         />
       </Stack.Navigator>
     </NavigationContainer>
