@@ -13,7 +13,7 @@ class Chapters extends Component {
     }
 
     submit = () => {
-        this.props.navigation.navigate("Input");
+        this.props.navigation.navigate("TopicGraph");
     };
 
     render() {
