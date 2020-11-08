@@ -1,15 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
-// const buttonClickedHandler = () => {
-//   this.props.navigation.navigate("TopicGraph2");
-// };
-
-const longClickedHandler = () => {
-  this.props.navigation.navigate("StructureSummary");
-
-};
-
 export default class TopicGraph extends React.Component {
   constructor(props) {
     super(props);
@@ -21,32 +12,36 @@ export default class TopicGraph extends React.Component {
     this.props.navigation.navigate("TopicGraph2");
   };
   
+  longClickedHandler = () => {
+    this.props.navigation.navigate("StructureSummary");
+  
+  };
 
   render() {
     return (
       <View style={styles.screen}>
         <TouchableOpacity
-          onPress={buttonClickedHandler}
+          onPress={()=>{this.buttonClickedHandler()}}
           style={styles.roundButton1}>
           <Text>Cell</Text>
         </TouchableOpacity>
 
         <View style={{ flexDirection: "row" }}>
           <TouchableOpacity
-            onPress={this.buttonClickedHandler}
-            onLongPress={longClickedHandler}
+            onPress={()=>{this.buttonClickedHandler()}}
+            onLongPress={()=>{this.longClickedHandler()}}
             style={styles.roundButton2}>
             <Text>History</Text>
           </TouchableOpacity>
 
           <TouchableOpacity
-            onPress={buttonClickedHandler}
+            onPress={()=>{this.buttonClickedHandler()}}
             style={styles.roundButton2}>
             <Text>Structure</Text>
           </TouchableOpacity>
 
           <TouchableOpacity
-            onPress={buttonClickedHandler}
+            onPress={()=>{this.buttonClickedHandler()}}
             style={styles.roundButton2}>
             <Text>Functions</Text>
           </TouchableOpacity>

@@ -1,17 +1,6 @@
 import React from 'react';
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 
-const buttonClickedHandler = () => {
-  console.log('You have been clicked a button!');
-  // do something
-};
-
-const longClickedHandler = () => {
-  
-  this.props.navigation.navigate("NucleusSummary");
-
-};
-
 export default class TopicGraph2 extends React.Component {
   constructor(props) {
     super(props);
@@ -19,32 +8,40 @@ export default class TopicGraph2 extends React.Component {
     };
   }
 
+  buttonClickedHandler = () => {
+    console.log('You have been clicked a button!');
+  };
+
+  longClickedHandler = () => {
+    this.props.navigation.navigate("NucleusSummary");
+  };
+
   render() {
     return (
     <View style={styles.screen}>
       <TouchableOpacity
-        onPress={buttonClickedHandler}
+        onPress={()=>{this.buttonClickedHandler()}}
         style={styles.roundButton1}>
         <Text>Structure</Text>
       </TouchableOpacity>
 
       <View style={{flexDirection:"row"}}>
         <TouchableOpacity
-          onPress={buttonClickedHandler}
-          onLongPress={longClickedHandler}
+          onPress={()=>{this.buttonClickedHandler()}}
+          onLongPress={()=>{this.longClickedHandler()}}
           style={styles.roundButton2}>
           <Text>Cell Membrane</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
-          onPress={buttonClickedHandler}
+          onPress={()=>{this.buttonClickedHandler()}}
           style={styles.roundButton2}>
           <Text>Cytoplasm</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
-          onPress={buttonClickedHandler}
-          onLongPress={longClickedHandler}
+          onPress={()=>{this.buttonClickedHandler()}}
+          onLongPress={()=>{this.longClickedHandler()}}
           style={styles.roundButton2}>
           <Text>Nucleus</Text>
         </TouchableOpacity>
