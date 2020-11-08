@@ -5,7 +5,6 @@ import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import SwipeCards from './SwipeCards';
 import Inputs from './input.js'
 import Subjects from './chooseSubject';
 import Chapters from './chooseChapter';
@@ -14,15 +13,13 @@ import TopicGraph from './TopicGraph';
 import TopicGraph2 from './TopicGraph2';
 import StructureSummary from './StructureSummary';
 import NucleusSummary from './NucleusSummary';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
 import SwipeCards from './SwipeCards';
 import FlashCards from './FlashCards';
+import Methods from './chooseMethod.js';
 
 const Stack = createStackNavigator();
 console.disableYellowBox = true;
 
-const Stack = createStackNavigator();
 export default function App() {
 
   return (
@@ -59,6 +56,18 @@ export default function App() {
         <Stack.Screen
           name="NucleusSummary"
           component={NucleusSummary}
+        />
+        <Stack.Screen
+          name="Methods"
+          component={Methods}
+        />
+         <Stack.Screen
+          name="SwipeCards"
+          component={SwipeCards}
+        />
+         <Stack.Screen
+          name="FlashCards"
+          component={FlashCards}
         />
       </Stack.Navigator>
     </NavigationContainer>
